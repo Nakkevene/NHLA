@@ -1,5 +1,6 @@
 {
   "name": "nhla",
+  "type": "module",
   "version": "1.0.0",
   "description": "Nakken Hassu Lämpötila Asema",
   "main": "bootstrapper.js",
