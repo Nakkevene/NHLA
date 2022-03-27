@@ -1,0 +1,11 @@
+{
+  "name": "nhla",
+  "version": "1.0.0",
+  "description": "Nakken Hassu Lämpötila Asema",
+  "main": "bootstrapper.js",
+  "author": "xXPinkkiPoni96Xx <yeaboicheese@gmail.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
