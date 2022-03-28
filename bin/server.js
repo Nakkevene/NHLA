@@ -1,5 +1,5 @@
 //* ENTRY
-export function NHLAServer(SYN_PORT = 5666) {
+function NHLAServer(SYN_PORT = 5666) {
   const express = require("express");
   const { exec } = require("child_process");
   const server = express();
