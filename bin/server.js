@@ -1,5 +1,6 @@
 import express from "express";
 import { exec } from "child_process";
+import * as temps from "./temp.js"
 
 //* ENTRY
 export function NHLAServer(SYN_PORT = 5666) {
@@ -7,9 +8,6 @@ export function NHLAServer(SYN_PORT = 5666) {
   const { exec } = require("child_process");
   const server = express();*/
   const server = express();
-
-  //? temps
-  const temps = require("./temp.js");
 
   //? Once connection to / is established
   server.get("/", (req, res) => {
