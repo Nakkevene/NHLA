@@ -1,6 +1,4 @@
-//!const fs = require("fs");
-import fs from "fs";
-
+const fs = require("fs");
 
 //* Get raw values, remove newlines, convert them to celsius and return
 export function temp0() {

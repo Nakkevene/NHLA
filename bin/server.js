@@ -1,11 +1,7 @@
-import express from "express";
-import { exec } from "child_process";
-
 //* ENTRY
 export function NHLAServer(SYN_PORT = 5666) {
-  /*const express = require("express");
+  const express = require("express");
   const { exec } = require("child_process");
-  const server = express();*/
   const server = express();
 
   //? temps
