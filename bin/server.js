@@ -44,7 +44,7 @@ export function NHLAServer(SYN_PORT = 5666) {
     Logger(`New connection from ${req.ip}.`, "/api/neofetch");
 
     let neofetch;
-    exec("neofetch", (err, stdout, stderr) => {
+    exec("sh -c neofetch", (err, stdout, stderr) => {
       if (err) neofetch = "ERROR";
       if (stderr) neofetch = "STDERR";
       else neofetch = stdout;
