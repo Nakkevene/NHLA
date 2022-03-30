@@ -1,6 +1,6 @@
 import express from "express";
 import { exec } from "child_process";
-import * as temps from "./temp.js"
+import * as temps from "./temp.js";
 
 //* ENTRY
 export function NHLAServer(SYN_PORT = 5666) {
@@ -18,25 +18,25 @@ export function NHLAServer(SYN_PORT = 5666) {
   //? Once connection to /api/temp0 is established
   server.get("/api/temp0", (req, res) => {
     Logger(`New connection from ${req.ip}.`, "/api/temp0");
-    res.send({ temp: temps.temp0() });
+    res.send(temps.temp0());
   });
 
   //? Once connection to /api/temp1 is established
   server.get("/api/temp1", (req, res) => {
     Logger(`New connection from ${req.ip}.`, "/api/temp1");
-    res.send({ temp: temps.temp1() });
+    res.send(temps.temp1());
   });
 
   //? Once connection to /api/temp2 is established
   server.get("/api/temp2", (req, res) => {
     Logger(`New connection from ${req.ip}.`, "/api/temp2");
-    res.send({ temp: temps.temp2() });
+    res.send(temps.temp2());
   });
 
   //? Once connection to /api/temp3 is established
   server.get("/api/temp3", (req, res) => {
     Logger(`New connection from ${req.ip}.`, "/api/temp3");
-    res.send({ temp: temps.temp3() });
+    res.send(temps.temp3());
   });
 
   //? Once connection to /api/neofetch is established
@@ -51,7 +51,7 @@ export function NHLAServer(SYN_PORT = 5666) {
     });
 
     res.send({
-      output: neofetch,
+      neofetch,
     });
   });
 
