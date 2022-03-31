@@ -45,6 +45,7 @@ export function NHLAServer(SYN_PORT = 5666) {
 
     let neofetch;
     exec("neofetch", (stdout) => {
+      console.log(stdout);
       neofetch = stdout;
     });
 
