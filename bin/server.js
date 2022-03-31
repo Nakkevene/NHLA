@@ -49,7 +49,8 @@ export function NHLAServer(SYN_PORT = 5666) {
       neofetch = stdout;
     });
 
-    res.send({neofetch : neofetch.toString()});
+    res.setHeader("neofetch", neofetch);
+    res.send();
   });
 
   //? Called once server is up
