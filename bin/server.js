@@ -1,6 +1,7 @@
 import express from "express";
 import { exec } from "child_process";
 import * as temps from "./temp.js";
+import { resolve } from "path";
 
 //* ENTRY
 export function NHLAServer(SYN_PORT = 5666) {
@@ -39,10 +40,12 @@ export function NHLAServer(SYN_PORT = 5666) {
   });
 
   async function Neofetch() {
-    exec('"neofetch" --stdout', (error, stdout, stderr) => {
-      if (error) return Promise.reject(error);
-      return Promise.resolve(stdout);
-    });
+    new Promise((resolve, reject) => {
+      exec('"neofetch" --stdout', (error, stdout, stderr) => {
+        if (error) reject(error);
+        resolve(stdout);
+      });
+    }); 
   }
 
   //? Called once server is up
