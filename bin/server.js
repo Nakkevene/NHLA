@@ -34,7 +34,7 @@ export function NHLAServer(SYN_PORT = 5666) {
         .catch((err) => {
           res.send(toString(err));
         });
-      neofetch = false;
+      neofetching = false;
     }
   });
 
