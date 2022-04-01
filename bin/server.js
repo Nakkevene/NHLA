@@ -34,7 +34,7 @@ export function NHLAServer(SYN_PORT = 5666) {
     //!   >:(
     setTimeout(() => {
       res.send(neofetch);
-    }, 1500);
+    }, 3500);
   });
 
   //? Called once server is up
