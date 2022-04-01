@@ -58,7 +58,7 @@ export function temp3() {
     temp =
       parseInt(
         fs
-          .readFileSync("/sys/class/hwmon/hwmon0/temp3_input")
+          .readFileSync("/sys/class/hwmon/hwmon3/temp1_input")
           .toString()
           .replace(/[\r\n]+/gm, "")
       ) / 1000;
