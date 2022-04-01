@@ -41,7 +41,6 @@ export function NHLAServer(SYN_PORT = 5666) {
   async function Neofetch() {
     exec('"neofetch" --stdout', (error, stdout, stderr) => {
       if (error) return Promise.reject(error);
-      if (stderr) return Promise.reject(stderr);
       Promise.resolve(stdout);
     });
   }
