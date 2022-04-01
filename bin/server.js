@@ -26,15 +26,16 @@ export function NHLAServer(SYN_PORT = 5666) {
     Logger(`New connection from ${req.ip}.`, "/api/neofetch");
 
     let neofetch = "";
-    exec('"neofetch" --stdout', (error, stdout) => {
+    const process = exec('"neofetch" --stdout', (error, stdout) => {
       if (error) neofetch = error;
       neofetch = stdout;
     });
-
-    //!   >:(
-    setTimeout(() => {
+    
+    let wait = true;
+    while (process.exitCode == null) {
+      wait = false;
       res.send(neofetch);
-    }, 3500);
+    }
   });
 
   //? Called once server is up
