@@ -1,7 +1,6 @@
 import express from "express";
 import { exec } from "child_process";
 import * as temps from "./temp.js";
-import { resolve } from "path";
 
 //* ENTRY
 export function NHLAServer(SYN_PORT = 5666) {
