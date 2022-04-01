@@ -31,24 +31,22 @@ export function NHLAServer(SYN_PORT = 5666) {
     if (!neofetching) {
       neofetching = true;
       Neofetch()
-      .then((data) => {
-        res.send(toString(data));
-      })
-      .catch((err) => {
-        res.send(toString(err));
-      });
+        .then((data) => {
+          res.send(toString(data));
+        })
+        .catch((err) => {
+          res.send(toString(err));
+        });
       neofetch = false;
     }
   });
 
-  
   async function Neofetch() {
-      exec('"neofetch" --stdout', (error, stdout, stderr) => {
-        if (error) return Promise.reject(error);
-        if (stderr) return Promise.reject(stderr);
-        Promise.resolve(stdout);
-      });
-    }
+    exec('"neofetch" --stdout', (error, stdout, stderr) => {
+      if (error) return Promise.reject(error);
+      if (stderr) return Promise.reject(stderr);
+      Promise.resolve(stdout);
+    });
   }
 
   //? Called once server is up
