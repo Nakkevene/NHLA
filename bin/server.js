@@ -27,14 +27,14 @@ export function NHLAServer(SYN_PORT = 5666) {
 
     let neofetch = "";
     const process = exec('"neofetch" --stdout', (error, stdout) => {
-      if (error) neofetch = error;
+      if (error) neofetch = toString(error);
       neofetch = stdout;
     });
     
     let wait = true;
     while (process.exitCode == null) {
       wait = false;
-      res.send(neofetch);
+      res.send(`${neofetch}\n`);
     }
   });
 
