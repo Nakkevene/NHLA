@@ -18,7 +18,7 @@ export function NHLAServer(SYN_PORT = 5666) {
   //? Once connection to /api/temp is established
   server.get("/api/temp", (req, res) => {
     Logger(`New connection from ${req.ip}.`, "/api/temp");
-    res.send(`${temps.temp0}\n${temps.temp1}\n${temps.temp2}\n${temps.temp3}`);
+    res.send(`${temps.temp0()}\n${temps.temp1()}\n${temps.temp2()}\n${temps.temp3()}`);
   });
 
   //? Once connection to /api/temp0 is established
