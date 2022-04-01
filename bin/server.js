@@ -22,31 +22,20 @@ export function NHLAServer(SYN_PORT = 5666) {
   });
 
   //? Once connection to /api/neofetch is established
-  let neofetching = false;
   server.get("/api/neofetch", (req, res) => {
     Logger(`New connection from ${req.ip}.`, "/api/neofetch");
 
-    if (!neofetching) {
-      neofetching = true;
-      Neofetch()
-        .then((data) => {
-          res.send(toString(data));
-        })
-        .catch((err) => {
-          res.send(toString(err));
-        });
-      neofetching = false;
-    }
-  });
+    let neofetch = "";
+    exec('"neofetch" --stdout', (error, stdout) => {
+      if (error) neofetch = error;
+      neofetch = stdout;
+    });
 
-  async function Neofetch() {
-    new Promise((resolve, reject) => {
-      exec('"neofetch" --stdout', (error, stdout, stderr) => {
-        if (error) reject(error);
-        resolve(stdout);
-      });
-    }); 
-  }
+    //!   >:(
+    setTimeout(() => {
+      res.send(neofetch);
+    }, 1500);
+  });
 
   //? Called once server is up
   server.listen({ port: SYN_PORT }, () => {
